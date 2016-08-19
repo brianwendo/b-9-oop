@@ -1,3 +1,4 @@
+import student
 from student import Student
 
 '''Create at least 10 students'''
@@ -22,3 +23,5 @@ s2.attend_class(date = '2016, 4, 22', teacher='Alex', id= s2.id, first_name=s2.f
 s3.attend_class(date='2016, 4, 22', id= s1.id, first_name=s3.fname, last_name=s3.lname, country=s3.country)
 s4.attend_class(date='2016, 4, 21', teacher='Alex', id= s4.id, first_name=s4.fname, last_name=s4.lname, country=s4.country)
 s5.attend_class(date='2016, 4, 21', id= s5.id, first_name=s5.fname, last_name=s5.lname, country=s5.country)
+
+print(student.student_attendance(date = '2016, 4, 22'))
