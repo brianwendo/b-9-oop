@@ -1,5 +1,5 @@
 from datetime import datetime
-map__:{
+map_ ={
 	'KE': 'Kenya',
 	'NG': 'Nigeria',
 	'UG': 'Uganda',
@@ -7,19 +7,29 @@ map__:{
 }
 class Student(object):
 	#generate sequential ID
+	attendance = []
 	current_id = 0
-    def __init__(self, id, fname, lname):
-        self.__id = id
-        self.fname = fname
-        self.lname = lname
-        self.country = map__[cc]
 	
-	def attend_class(self, loc = 'Hogwarts', date = datetime.day(), teacher ='Alex):
-		#default values
-		#loc = 'Hogwarts'
-		#date = current date
-		#teacher ='Alex'
-		pass
+	def __init__(self, id, fname, lname, cc='KE'):
+		
+		Student.current_id += 1
+		
+		self.id = Student.current_id
+		self.fname = fname
+		self.lname = lname
+		self.country = map_[cc]
+        #generates a list of student attendance
+	
+	def attend_class(self,**kwargs):
+		self.loc = kwargs.setdefault('loc', 'Hogwarts')
+		self.date = kwargs.setdefault('date', datetime.today().date())
+		self.teacher = kwargs.setdefault('teacher', 'Alex')
 
-s1 = Student(1, 'Kevin', 'Chiteri', 'KE')
-s2 = Student(2, 'Allan', 'M', 'UG')
+		Student.attendance.append(kwargs)
+		#generates a list who were present on a particular day
+
+	def student_attendance(self, date=datetime.today().date()):
+		for item in Student.attendance:
+			if item['date'] == date:
+				print(item)
+
