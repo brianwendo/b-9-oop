@@ -28,7 +28,7 @@ class Student(object):
 		Student.attendance.append(kwargs)
 		#generates a list who were present on a particular day
 
-	def student_attendance(self, date=datetime.today().date()):
+def student_attendance(date=datetime.today().date()):
 		for item in Student.attendance:
 			if item['date'] == date:
 				print(item)
